@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price</title>
+    <link rel="stylesheet" href="static\css\style.css">
+</head>
+
+<body bgcolor="#FEEFC4">
+<div style="width: 100%; overflow: hidden;">
+<div align="left"style="width: 500px; float: left;">
+    <img src="https://images.unsplash.com/photo-1493238792000-8113da705763?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80" alt="" style="width:500px;height:680px">
+</div>
+
+<p align="center" class="heading"><b>Used Car Price Predictor</b></p>
+<div align="center">
+    <form action="{{ url_for('predict')}}" method="POST">
+        <div class="b"><b>Years of usage</b><br>
+            <input class="a" type="Number" name ="Year" required="required"></div>
+
+        <div class="b"><b>Showroom Price(in Lakhs)</b><br>
+            <input type="Number" name="Present_Price" required="required" class="a"></div>
+
+        <div class="b"><b>Kilmeters Driven</b><br>
+            <input type="Number" name="Kms_Driven" required="required" class="a"></div>
+
+        <div class="b"><b>Number of previous Owners</b><br>
+            <select name="Owner" class="a">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option></select></div>
+
+        <div class="b"><b>Fuel Type</b><br>
+            <select name="Fuel_Type_Petrol" class="a">
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+            <option value="CNG">CNG</option></select></div>
+
+        <div class="b"><b>Are you Dealer or Individual</b><br>
+            <select name="Seller_Type_Individual" class="a">
+            <option value="Dealer">Dealer</option>
+            <option value="Individual">Individual</option></select></div>
+
+        <div class="b"><b>Transmission Type</b><br>
+            <select name="Transmission_Manual" class="a">
+            <option value="Manual">Manual</option>
+            <option value="Automatic">Automatic</option>
+        </select></div>
+
+        <div class="c" align="center"><button type="submit" class="d">Calculate selling price</button></div>
+    </form>
+</div>
+<p align="center" class="heading">{{ prediction_text }}</p></body>
+</html>
