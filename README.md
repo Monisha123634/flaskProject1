@@ -1,2 +1,2 @@
-# flaskProj
+# flaskProject
 Car Price Predictor
